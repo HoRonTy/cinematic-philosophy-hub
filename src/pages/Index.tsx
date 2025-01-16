@@ -19,8 +19,29 @@ const characters = [
     id: "morpheus",
     name: "Морфеус",
     movie: "Матрица",
-    image: "https://images.unsplash.com/photo-1599809275671-b5942cabc7a2?auto=format&fit=crop&q=80&w=400",
+    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=400",
     shortDescription: "Проводник истины в мире иллюзий."
+  },
+  {
+    id: "v",
+    name: "V",
+    movie: "V значит Вендетта",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=400",
+    shortDescription: "Революционер, борющийся за свободу через идеи и символы."
+  },
+  {
+    id: "yoda",
+    name: "Мастер Йода",
+    movie: "Звёздные войны",
+    image: "https://images.unsplash.com/photo-1599719500956-d158a26ab3ee?auto=format&fit=crop&q=80&w=400",
+    shortDescription: "Мудрый наставник, учащий балансу и внутренней силе."
+  },
+  {
+    id: "terminator",
+    name: "T-800",
+    movie: "Терминатор 2",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=400",
+    shortDescription: "Машина, научившаяся ценности человеческой жизни."
   }
 ];
 
