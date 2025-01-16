@@ -1,4 +1,6 @@
 import CharacterCard from "../components/CharacterCard";
+import { Input } from "../components/ui/input";
+import { useState } from "react";
 
 const characters = [
   {
@@ -53,6 +55,17 @@ const characters = [
 ];
 
 const Index = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredCharacters = characters.filter((character) => {
+    const searchLower = searchQuery.toLowerCase();
+    return (
+      character.name.toLowerCase().includes(searchLower) ||
+      character.movie.toLowerCase().includes(searchLower) ||
+      character.shortDescription.toLowerCase().includes(searchLower)
+    );
+  });
+
   return (
     <div className="min-h-screen bg-background p-8">
       <div className="max-w-7xl mx-auto">
@@ -63,11 +76,27 @@ const Index = () => {
           Исследуйте мировоззрение самых интересных персонажей кинематографа
         </p>
         
+        <div className="mb-8">
+          <Input
+            type="search"
+            placeholder="Поиск по имени, фильму или описанию..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="max-w-md"
+          />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {characters.map((character) => (
+          {filteredCharacters.map((character) => (
             <CharacterCard key={character.id} {...character} />
           ))}
         </div>
+
+        {filteredCharacters.length === 0 && (
+          <p className="text-center text-foreground/60 mt-8">
+            Персонажи не найдены
+          </p>
+        )}
       </div>
     </div>
   );
