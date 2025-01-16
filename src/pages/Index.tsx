@@ -42,6 +42,13 @@ const characters = [
     movie: "Терминатор 2",
     image: "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/06.png",
     shortDescription: "Машина, научившаяся ценности человеческой жизни."
+  },
+  {
+    id: "rick-sanchez",
+    name: "Рик Санчез",
+    movie: "Рик и Морти",
+    image: "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/07.png",
+    shortDescription: "Гениальный ученый, нигилист, считающий вселенную абсурдной и бессмысленной."
   }
 ];
 
