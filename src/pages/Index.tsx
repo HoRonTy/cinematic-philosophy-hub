@@ -5,42 +5,42 @@ const characters = [
     id: "joker",
     name: "Джокер",
     movie: "Темный рыцарь",
-    image: "https://images.unsplash.com/photo-1600804889194-e6fbf08ddb39?auto=format&fit=crop&q=80&w=400",
+    image: "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/01.png",
     shortDescription: "Агент хаоса, который верит в абсурдность порядка и морали."
   },
   {
     id: "tyler-durden",
     name: "Тайлер Дёрден",
     movie: "Бойцовский клуб",
-    image: "https://images.unsplash.com/photo-1579983926774-842190c2200d?auto=format&fit=crop&q=80&w=400",
+    image: "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/02.png",
     shortDescription: "Анархист, выступающий против консьюмеризма и социальных норм."
   },
   {
     id: "morpheus",
     name: "Морфеус",
     movie: "Матрица",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=400",
+    image: "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/03.png",
     shortDescription: "Проводник истины в мире иллюзий."
   },
   {
     id: "v",
     name: "V",
     movie: "V значит Вендетта",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=400",
+    image: "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/04.png",
     shortDescription: "Революционер, борющийся за свободу через идеи и символы."
   },
   {
     id: "yoda",
     name: "Мастер Йода",
     movie: "Звёздные войны",
-    image: "https://images.unsplash.com/photo-1599719500956-d158a26ab3ee?auto=format&fit=crop&q=80&w=400",
+    image: "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/05.png",
     shortDescription: "Мудрый наставник, учащий балансу и внутренней силе."
   },
   {
     id: "terminator",
     name: "T-800",
     movie: "Терминатор 2",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=400",
+    image: "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/06.png",
     shortDescription: "Машина, научившаяся ценности человеческой жизни."
   }
 ];
