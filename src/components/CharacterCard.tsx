@@ -36,7 +36,7 @@ const CharacterCard = ({ id, name, image, movie, shortDescription }: CharacterCa
         />
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-deep-black to-transparent p-4">
           <h2 className="text-xl font-bold text-foreground">{name}</h2>
-          <p className="text-sm text-accent">{movie}</p>
+          <p className="text-sm text-foreground/80">{movie}</p>
         </div>
       </div>
       <div className="p-4">
