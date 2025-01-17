@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -52,6 +52,23 @@ const Character = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  // Загрузка комментариев из localStorage при монтировании компонента
+  useEffect(() => {
+    if (id) {
+      const savedComments = localStorage.getItem(`comments-${id}`);
+      if (savedComments) {
+        setComments(JSON.parse(savedComments));
+      }
+    }
+  }, [id]);
+
+  // Сохранение комментариев в localStorage при их изменении
+  useEffect(() => {
+    if (id) {
+      localStorage.setItem(`comments-${id}`, JSON.stringify(comments));
+    }
+  }, [comments, id]);
+
   const handleCommentSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!comment.trim()) {
@@ -64,7 +81,6 @@ const Character = () => {
     }
 
     setIsSubmitting(true);
-    // Здесь можно добавить логику отправки данных на бэкенд
     await new Promise(resolve => setTimeout(resolve, 1000)); // Имитация запроса
     
     const newComment = {
