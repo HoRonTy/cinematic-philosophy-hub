@@ -1,5 +1,9 @@
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
+import { ArrowLeft } from "lucide-react";
 
 const charactersData = {
   "joker": {
@@ -34,9 +38,50 @@ const charactersData = {
   }
 };
 
+interface Comment {
+  id: string;
+  text: string;
+  date: string;
+}
+
 const Character = () => {
   const { id } = useParams();
   const character = charactersData[id as keyof typeof charactersData];
+  const [comment, setComment] = useState("");
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleCommentSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!comment.trim()) {
+      toast({
+        title: "Ошибка",
+        description: "Пожалуйста, напишите комментарий",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    // Здесь можно добавить логику отправки данных на бэкенд
+    await new Promise(resolve => setTimeout(resolve, 1000)); // Имитация запроса
+    
+    const newComment = {
+      id: Date.now().toString(),
+      text: comment,
+      date: new Date().toLocaleDateString(),
+    };
+    
+    setComments(prev => [newComment, ...prev]);
+    setComment("");
+    setIsSubmitting(false);
+    
+    toast({
+      title: "Готово!",
+      description: "Ваш комментарий добавлен",
+    });
+  };
 
   if (!character) {
     return (
@@ -52,8 +97,9 @@ const Character = () => {
   return (
     <div className="min-h-screen bg-background p-8">
       <div className="max-w-4xl mx-auto">
-        <Link to="/" className="text-accent hover:underline block mb-8">
-          ← Вернуться на главную
+        <Link to="/" className="text-accent hover:underline inline-flex items-center gap-2 mb-8">
+          <ArrowLeft className="w-4 h-4" />
+          Вернуться на главную
         </Link>
         
         <div className="bg-card rounded-lg overflow-hidden animate-fade-in">
@@ -74,7 +120,7 @@ const Character = () => {
             <p className="text-foreground/80 mb-8">{character.philosophy}</p>
             
             <h2 className="text-2xl font-bold text-foreground mb-4">Цитаты</h2>
-            <div className="space-y-4">
+            <div className="space-y-4 mb-8">
               {character.quotes.map((quote, index) => (
                 <blockquote 
                   key={index}
@@ -83,6 +129,33 @@ const Character = () => {
                   "{quote}"
                 </blockquote>
               ))}
+            </div>
+
+            <h2 className="text-2xl font-bold text-foreground mb-4">Комментарии</h2>
+            <form onSubmit={handleCommentSubmit} className="space-y-4 mb-8">
+              <Textarea
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+                placeholder="Оставьте свой комментарий..."
+                className="min-h-[100px]"
+              />
+              <Button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Отправка..." : "Отправить комментарий"}
+              </Button>
+            </form>
+
+            <div className="space-y-4">
+              {comments.map((comment) => (
+                <div key={comment.id} className="bg-card/50 p-4 rounded-lg">
+                  <p className="text-foreground/80 mb-2">{comment.text}</p>
+                  <p className="text-sm text-foreground/60">{comment.date}</p>
+                </div>
+              ))}
+              {comments.length === 0 && (
+                <p className="text-center text-foreground/60">
+                  Пока нет комментариев. Будьте первым!
+                </p>
+              )}
             </div>
           </div>
         </div>

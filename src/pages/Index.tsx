@@ -1,5 +1,5 @@
 import CharacterCard from "../components/CharacterCard";
-import { Input } from "../components/ui/input";
+import Header from "../components/Header";
 import { useState } from "react";
 
 const characters = [
@@ -67,37 +67,31 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold text-foreground mb-2 animate-fade-in">
-          Философия киногероев
-        </h1>
-        <p className="text-foreground/80 mb-8 animate-fade-in">
-          Исследуйте мировоззрение самых интересных персонажей кинематографа
-        </p>
-        
-        <div className="mb-8">
-          <Input
-            type="search"
-            placeholder="Поиск по имени, фильму или описанию..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="max-w-md"
-          />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredCharacters.map((character) => (
-            <CharacterCard key={character.id} {...character} />
-          ))}
-        </div>
-
-        {filteredCharacters.length === 0 && (
-          <p className="text-center text-foreground/60 mt-8">
-            Персонажи не найдены
+    <div className="min-h-screen bg-background">
+      <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
+      
+      <main className="p-8">
+        <div className="max-w-7xl mx-auto">
+          <h1 className="text-4xl font-bold text-foreground mb-2 animate-fade-in">
+            Философия киногероев
+          </h1>
+          <p className="text-foreground/80 mb-8 animate-fade-in">
+            Исследуйте мировоззрение самых интересных персонажей кинематографа
           </p>
-        )}
-      </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredCharacters.map((character) => (
+              <CharacterCard key={character.id} {...character} />
+            ))}
+          </div>
+
+          {filteredCharacters.length === 0 && (
+            <p className="text-center text-foreground/60 mt-8">
+              Персонажи не найдены
+            </p>
+          )}
+        </div>
+      </main>
     </div>
   );
 };
