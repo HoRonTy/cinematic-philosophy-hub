@@ -25,21 +25,21 @@ const CharacterCard = ({ id, name, images, movie, shortDescription }: CharacterC
   return (
     <Link 
       to={`/character/${id}`}
-      className={`block ${getCharacterBackground(id)} rounded-lg overflow-hidden transition-all duration-300 transform hover:scale-105`}
+      className={`block ${getCharacterBackground(id)} rounded-lg overflow-hidden transition-all duration-300 transform hover:scale-105 h-[400px]`}
     >
-      <div className="relative h-64">
+      <div className="relative h-[250px]">
         <img 
           src={images[0]} 
           alt={name} 
           className="w-full h-full object-cover"
         />
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-deep-black to-transparent p-4">
-          <h2 className="text-xl font-bold text-foreground mb-2">{name}</h2>
+          <h2 className="text-xl font-bold text-foreground mb-1">{name}</h2>
           <p className="text-sm text-foreground/80">{movie}</p>
         </div>
       </div>
       <div className="p-4">
-        <p className="text-foreground/80">{shortDescription}</p>
+        <p className="text-foreground/80 line-clamp-3">{shortDescription}</p>
       </div>
     </Link>
   );
