@@ -7,49 +7,70 @@ const characters = [
     id: "joker",
     name: "Джокер",
     movie: "Темный рыцарь",
-    image: "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/01.png",
+    images: [
+      "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/01.png",
+      "https://images.unsplash.com/photo-1600804889194-e6fbf08ddb39?auto=format&fit=crop&q=80&w=400"
+    ],
     shortDescription: "Агент хаоса, который верит в абсурдность порядка и морали."
   },
   {
     id: "tyler-durden",
     name: "Тайлер Дёрден",
     movie: "Бойцовский клуб",
-    image: "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/02.png",
+    images: [
+      "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/02.png",
+      "https://images.unsplash.com/photo-1579983926774-842190c2200d?auto=format&fit=crop&q=80&w=400"
+    ],
     shortDescription: "Анархист, выступающий против консьюмеризма и социальных норм."
   },
   {
     id: "morpheus",
     name: "Морфеус",
     movie: "Матрица",
-    image: "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/03.png",
+    images: [
+      "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/03.png",
+      "https://images.unsplash.com/photo-1599809275671-b5942cabc7a2?auto=format&fit=crop&q=80&w=400"
+    ],
     shortDescription: "Проводник истины в мире иллюзий."
   },
   {
     id: "v",
     name: "V",
     movie: "V значит Вендетта",
-    image: "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/04.png",
+    images: [
+      "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/04.png",
+      "https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&q=80&w=400"
+    ],
     shortDescription: "Революционер, борющийся за свободу через идеи и символы."
   },
   {
     id: "yoda",
     name: "Мастер Йода",
     movie: "Звёздные войны",
-    image: "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/05.png",
+    images: [
+      "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/05.png",
+      "https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&q=80&w=400"
+    ],
     shortDescription: "Мудрый наставник, учащий балансу и внутренней силе."
   },
   {
     id: "terminator",
     name: "T-800",
     movie: "Терминатор 2",
-    image: "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/06.png",
+    images: [
+      "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/06.png",
+      "https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&q=80&w=400"
+    ],
     shortDescription: "Машина, научившаяся ценности человеческой жизни."
   },
   {
     id: "rick-sanchez",
     name: "Рик Санчез",
     movie: "Рик и Морти",
-    image: "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/07.png",
+    images: [
+      "https://raw.githubusercontent.com/shadcn/ui/main/apps/www/public/avatars/07.png",
+      "https://images.unsplash.com/photo-1582562124811-c09040d0a901?auto=format&fit=crop&q=80&w=400"
+    ],
     shortDescription: "Гениальный ученый, нигилист, считающий вселенную абсурдной и бессмысленной."
   }
 ];
@@ -67,7 +88,7 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-deep-black">
       <Header searchQuery={searchQuery} onSearchChange={setSearchQuery} />
       
       <main className="p-8">
