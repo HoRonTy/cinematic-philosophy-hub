@@ -12,9 +12,11 @@ const Header = ({ searchQuery = "", onSearchChange }: HeaderProps) => {
   return (
     <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
-        <Link to="/" className="text-2xl font-bold text-foreground hover:text-accent transition-colors">
-          Filosofy
-        </Link>
+        <Button variant="ghost" asChild className="text-2xl font-bold hover:text-accent transition-colors">
+          <Link to="/">
+            Filosofy
+          </Link>
+        </Button>
         
         <div className="flex items-center gap-4 w-full md:w-auto">
           <Input
