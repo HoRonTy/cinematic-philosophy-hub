@@ -123,7 +123,8 @@ const Character = () => {
   if (!character) {
     return (
       <div className="min-h-screen bg-background p-8 text-center">
-        <h1 className="text-4xl text-foreground mb-4">Персонаж не найден</h1>
+        <h1 className="text-4xl text-foreground mb-4">Персонаж в разработке</h1>
+        <p className="text-foreground/80 mb-6">Мы работаем над добавлением этого персонажа. Загляните позже!</p>
         <Button asChild variant="outline">
           <Link to="/" className="inline-flex items-center gap-2">
             <Home className="w-4 h-4" />

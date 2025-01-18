@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Character from "./pages/Character";
 import Suggest from "./pages/Suggest";
+import Philosophers from "./pages/Philosophers";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/character/:id" element={<Character />} />
           <Route path="/suggest" element={<Suggest />} />
+          <Route path="/philosophers" element={<Philosophers />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
