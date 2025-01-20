@@ -146,16 +146,18 @@ const Character = () => {
         </Button>
         
         <div className="bg-gradient-to-br from-card to-gray-800 rounded-lg overflow-hidden animate-fade-in">
-          <div className="h-96 relative">
+          <div className="aspect-[16/9] relative">
             <Carousel className="w-full h-full">
               <CarouselContent>
                 {character.images.map((image, index) => (
-                  <CarouselItem key={index}>
-                    <img 
-                      src={image} 
-                      alt={`${character.name} ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
+                  <CarouselItem key={index} className="h-full">
+                    <div className="relative w-full h-full">
+                      <img 
+                        src={image} 
+                        alt={`${character.name} ${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
